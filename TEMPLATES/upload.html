@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/lightslider.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/lightslider.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+    <br>
+
+    <h1>Form to fill in products table</h1>
+
+    
+    <div class="container-fluid">
+        <h5 class="text-success">{{success}}</h5>
+        <h5 class="text-danger">{{error}}</h5>
+        <h5 class="text-primary">{{message}}</h5>
+    </div>    
+    <section class="row"></section>
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-body ">
+               <b class="text-primary">{{message_one}}</b> 
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="text" name="product_name" class="form-control" placeholder="Product name">
+                    <br>
+                    <textarea name="product_desc" id="" cols="30" rows="10" class="form-control" placeholder="product description"></textarea>
+                    <br>
+                    <input type="number" name="product_cost" class="form-control" placeholder="Product cost">
+                    <br>
+                    <select name="product_category" id="" class="form-control">
+                        <option value="Clothes">Clothes</option>
+                        <option value="Bags">Bags</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Utensils">Utensils</option>
+                        <option value="Smartphone">Smartphone</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <br>
+                    <input type="file" name="product_image_name" class="form-control">
+                    <input type="submit" value="Upload Product" class="btn btn-success">
+                </form>
+
+
+
+                
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <br> <br>
+    {% include 'footer.html' %}
+</body>
+</html>

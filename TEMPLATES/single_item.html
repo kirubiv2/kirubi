@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>single</title>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+
+</head>
+<body>
+
+    <div class="container-fluid">
+
+        {% include 'navbar.html' %}
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card p-5"><img src="/static/images/{{product[-1]}}" alt="" class="img-thumnail shadow p-4" width="100%">
+                </div>   
+            </div>
+    
+            <div class="col-md-6">
+                <div class="card p-5">
+                    <p class="text-muted">{{product[2]}}</p>
+                    <h4>KES: {{ product[3] }}</h4>
+                    <b class="text-danger">Category: {{product[-2]}}</b>
+                </div>
+                <div class="card mt-3">
+                    <!-- Check if user has signed in -->
+                    {% if session['username'] %}
+                    <img src="/static/images/download.png" alt="" class="card-img-top">
+                    <div class="card shadow">
+                        <div class="card-body ">
+                            
+                            <form action="/mpesa" method="POST" class="mt-2">
+                                <label for="" class="form-label">M-pesa Number <small>Ommit the leading plus sign</small></label>
+                                <input type="tel" class="form-control" name="mpesa_number" placeholder="254xxxxxxxxx">
+                                <br>
+                                <label for="" class="form-label">Price</label>
+                                <input type="number" value="{{ product[3] }}" readonly name="price">
+                                <input type="hidden" value="{{ product[0] }}" name="product_id">
+                                <br>
+                                <div class="text-center">
+                                    <input type="submit" class="btn btn-success" value="Make Payment">
+                                </div>
+                            </form>
+                        </div>
+                    </div>    
+                    <!-- We display mpesa form -->
+                    {% else %}
+                    <!-- We direct the user to sign in -->
+                    <div class="card-body">
+                        <h5 class="card-title">You are currently viewing this product as a guest!</h5>
+                        <p>Please log in to make payment.</p>
+                        <a href="/signin" class="text-info">Click here</a>
+                    </div>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- <section class="row">
+            <div class="col-md-4">
+                <img src="/static/images/{{product[-1]}}" alt="" class="img-thumnail shadow p-4" width="100%">
+
+                <h3>{{product[1]}}</h3>
+            </div>
+
+            <div class="col-md-8">
+                <p class="text-muted">{{product [2]}}</p>
+                <h4>KES: {{product[3]}}</h4>
+                <b class="text-danger">Category: {{product[-2]}}</b>
+            </div>
+        </section> -->
+
+    </div>
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

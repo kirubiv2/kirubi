@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendors</title>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/lightslider.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/lightslider.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <br>
+    
+    <div class="col-md-8 mx-auto">
+        <h5 class="text-success">{{success}}</h5>
+        <h5 class="text-danger">{{error}}</h5>
+        <h5 class="text-primary">{{message}}</h5>
+        
+        <div class="card">
+            <div class="card-body col-md-8 mx-auto">
+                
+              
+                <form action="/vendors" method="post" enctype="multipart/form-data">
+                    <input type="text" class="form-control" placeholder="Your firstname" name="firstname" required>
+                    <br>
+                    <input type="text" class="form-control" placeholder="Your lastname" name="lastname" required>
+                    <br>
+                    <input type="text" class="form-control" placeholder="Your county" name="county" required>
+                    <br>
+                    <input type="password" class="form-control" placeholder="Your password" name="password" required>
+                    <br>
+                    <input type="password" class="form-control" placeholder="confirm password" name="confirm_password" required>
+                    <br>
+                    <input type="email" class="form-control" placeholder="Your email" name="email" required>
+                    <br>
+                    <input type="submit" value="submit form" class="btn btn-success">
+
+
+                    
+                </form>
+
+
+
+                
+            </div>
+        </div>
+    </div> 
+</body>
+</html>

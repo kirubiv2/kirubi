@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/lightslider.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/lightslider.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+
+</head>
+<body>
+    <div class="container">
+        {% include 'navbar.html' %}
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card shadow center">
+                <div class="card-body ">
+                        <h3>LOG-IN BELOW</h3>
+
+                        <span class="text-danger">{{error}}</span>
+                        <span class="text-success"></span>
+
+                        <form action="/signin" method="post">
+                            <label for="" class="">Username</label>
+                            <input type="text" class="form-control" name="username" placeholder="Enter username">
+                            <label for="">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter password">
+                            <br> <br>
+                            <div class="text-center">
+                                <input type="submit" class="btn btn-success" value="Signin">
+                            </div>
+                            <div class="text-center mt-2">
+                                <p>Don't have an account? <a href="/register" class="text-info">Click to register</a></p>
+                            </div>
+                        </form>
+                </div>        
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

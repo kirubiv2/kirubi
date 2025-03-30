@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/lightslider.css">
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/lightslider.js"></script>
+    <script src="/static/js/script.js"></script>
+
+</head>
+<body>
+    <div class="container-fluid">
+
+        {% include 'navbar.html' %}
+
+        <br>
+
+        {% include 'carousel.html' %}
+
+        <br>
+
+        <h1>SMARTPHONES</h1>
+        <!-- electronics category -->
+        <section class="slider">
+            <ul class="autoWidth cs-hidden">
+
+                {% for row in Smartphone %}
+                    <li>
+                        <div class="box">
+                            <!-- Images -->
+                            <div class="slide-img">
+                                <img src="../static/images/{{ row[-1] }}" alt="" width="50%">
+
+                                <div class="overlay">
+                                    <a href="/single/{{ row[0] }}" class="buy-btn">Buy now</a>
+                                </div>
+                            </div>
+                            <!-- product name -->
+                            <div class="detail-box">
+                                {{ row[1] }}
+                                <br>
+                                <b class="text-warning">KES: {{ row[3] }}</b>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+       
+
+        <h1>ELECTRONICS</h1>
+        <!-- electronics category -->
+        <section class="slider">
+            <ul class="autoWidth cs-hidden">
+
+                {% for row in Electronics %}
+                    <li>
+                        <div class="box">
+                            <!-- Images -->
+                            <div class="slide-img">
+                                <img src="../static/images/{{ row[5] }}" alt="" width="50" height="50">
+
+                                <div class="overlay">
+                                    <a href="/single/{{ row[0] }}" class="buy-btn">Buy now</a>
+                                </div>
+                            </div>
+                            <!-- product name -->
+                            <div class="detail-box">
+                                {{ row[1] }}
+                                <br>
+                                <b class="text-warning">KES: {{ row[3] }}</b>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <h1>UTENSILS</h1>
+        <!-- electronics category -->
+        <section class="slider">
+            <ul class="autoWidth cs-hidden">
+
+                {% for row in utensils %}
+                    <li>
+                        <div class="box">
+                            <!-- Images -->
+                            <div class="slide-img">
+                                <img src="/static/images/{{row[5]}}" alt="" width="50" height="50">
+
+                                <div class="overlay">
+                                    <a href="/single/{{ row[0] }}" class="buy-btn">Buy now</a>
+                                </div>
+                            </div>
+                            <!-- product name -->
+                            <div class="detail-box">
+                                {{ row[1] }}
+                                <br>
+                                <b class="text-warning">KES: {{ row[3] }}</b>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+
+        <h1>OTHERS</h1>
+        <!-- others category -->
+        <section class="slider">
+            <ul class="autoWidth cs-hidden">
+
+                {% for row in Others %}
+                    <li>
+                        <div class="box">
+                            <!-- Images -->
+                            <div class="slide-img">
+                                <img src="/static/images/{{row[5]}}" alt="" width="50" height="50">
+
+                                <div class="overlay">
+                                    <a href="/single/{{ row[0] }}" class="buy-btn">Buy now</a>
+                                </div>
+                            </div>
+                            <!-- product name -->
+                            <div class="detail-box">
+                                {{ row[1] }}
+                                <br>
+                                <b class="text-warning">
+                                    KES: 
+                                </b>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <h1>CLOTHES</h1>
+        <section class="slider">
+            <ul class="autoWidth cs-hidden">
+
+                {% for row in Clothes %}
+                    <li>
+                        <div class="box">
+                            <!-- Images -->
+                            <div class="slide-img">
+                                <img src="../static/images/{{row[5]}}" alt="" width="50" height="50">
+
+                                <div class="overlay">
+                                    <a href="/single/{{ row[0] }}" class="buy-btn">Buy now</a>
+                                </div>
+                            </div>
+                            <!-- product name -->
+                            <div class="detail-box">
+                                {{ row[1] }}
+                                <br>
+                                <b class="text-warning">
+                                    KES: {{ "{:,.2f}".format (row[3]) }}
+                                </b>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+
+    </div>
+
+    <br>
+
+    {% include 'footer.html' %}
+
+    <br>
+
+
+
+</body>
+</html>
